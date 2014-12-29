@@ -1,0 +1,1 @@
+java -jar sphinx-aligner-runable.jar aligner data\10001-90210-01803.wav data\10001-90210-01803.txt models\acoustic\wsj models\acoustic\wsj\dict\cmudict.0.6d models\g2p\en_us_nostress\model.fst.ser

@@ -1,0 +1,19 @@
+﻿cách dùng sphinx4 alight
+- Down source: https://github.com/cmusphinx/sphinx4
+- Build bằng Maven
+- Down G2P model: http://sourceforge.net/projects/cmusphinx/files/G2P%20Models/ (giờ có mỗi tiếng anh để dùng)
+
+Input: (Xem file AlignerDemo.java cho rõ hơn)
+-	FILE_WAV: Phải là (16khz, 16bit, mono)
+- 	FILE_TEXT: Text should be a clean text in lower case. It should be cleaned from punctuation marks, numbers and other non-speakable things
+-	ACOUSTIC_MODEL_PATH: mặc định là: sphinx4-data\src\main\resources\edu\cmu\sphinx\models\acoustic\wsj
+- 	DICTIONARY: là 1 file, mặc định là: sphinx4-data\src\main\resources\edu\cmu\sphinx\models\acoustic\wsj\dict\cmudict.0.6d
+-	G2P_PATH: Path to g2p model (OPTIONAL) (chỉ đến file .ser, file .ser trong file nén down ở chỗ model G2P trên kia)
+
+Cách dùng:
+run.jar thực ra là sphinx4-samples-1.0-SNAPSHOT-jar-with-dependencies.jar (đổi tên cho gọn)
+
+Tại thư mục gốc của sphinx4 (hay sphinx4-master)
+java -cp run.jar edu.cmu.sphinx.demo.aligner.AlignerDemo FILE_WAV FILE_TEXT ACOUSTIC_MODEL_PATH DICTIONARY G2P_PATH
+hoặc
+java -jar run.jar aligner FILE_WAV FILE_TEXT ACOUSTIC_MODEL_PATH DICTIONARY G2P_PATH
