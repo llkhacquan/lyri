@@ -1,0 +1,39 @@
+<html>
+
+<body>
+
+    <div id="subtitle">
+    </div>
+
+    <script>
+        var words = [
+            ["hello", 1, 2],
+            ["world", 3, 4],
+            ["correct", 5, 7],
+            ["or not", 8, 9],
+            ["", 9, 9]
+        ];
+
+        for (index = 0; index < words.length; index++)
+            document.getElementById("subtitle").innerHTML += "<span id='w" + index + "'>" + words[index][0] + "</span> ";
+
+        function run() {            
+
+            if (run.position_counter == (words.length - 1) * 2)
+                return;
+
+            if (run.position_counter % 2 == 0) {
+                document.getElementById("w" + Math.floor(run.position_counter / 2)).style.color = "red";
+                setTimeout(run, (words[Math.floor(run.position_counter / 2)][2] - words[Math.floor(run.position_counter / 2)][1]) * 1000);
+            } else {
+                document.getElementById("w" + Math.floor(run.position_counter / 2)).style.color = "black";
+                setTimeout(run, (words[Math.floor(run.position_counter / 2) + 1][1] -
+                    words[Math.floor(run.position_counter / 2)][2]) * 1000);
+            }
+            run.position_counter++;
+        }
+    </script>
+    <button onclick="run.position_counter = 0; run();"> RUN </button>
+</body>
+
+</html>
